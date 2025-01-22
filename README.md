@@ -141,4 +141,4 @@ Email: camilly.p.souza@gmail.com
 
 GitHub: github.com/camillysouza
 
-Projeto desenvolvido como parte da disciplina de Administração de Sistemas e Infraestrutura no IFPB.
+Projeto desenvolvido como parte da disciplina de Administração de Sistemas Abertos no IFPB.
