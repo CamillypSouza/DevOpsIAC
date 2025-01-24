@@ -1,0 +1,32 @@
+---
+- name: Configuração do servidor NFS
+  hosts: all
+  become: yes
+  tasks:
+    - name: Instalar o servidor NFS
+      apt:
+        name: nfs-kernel-server
+        state: present
+
+    - name: Criar diretório NFS
+      file:
+        path: /dados/nfs
+        state: directory
+        owner: nobody
+        group: nogroup
+        mode: '0777'
+
+    - name: Configurar compartilhamento NFS
+      lineinfile:
+        path: /etc/exports
+        line: "/dados/nfs 192.168.57.0/24(rw,sync,no_subtree_check,all_squash,anonuid=1001,anongid=1001)"
+        state: present
+
+    - name: Aplicar as configurações do NFS
+      command: exportfs -ra
+
+    - name: Reiniciar o serviço NFS
+      service:
+        name: nfs-kernel-server
+        state: restarted
+

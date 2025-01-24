@@ -1,0 +1,13 @@
+- name: Configurar o hostname
+  hosts: all
+  become: yes
+  tasks:
+    - name: Configurar o hostname
+      ansible.builtin.hostname:
+        name: "p01-Camilly-Souza"  
+
+    - name: Atualizar /etc/hosts
+      ansible.builtin.lineinfile:
+        path: /etc/hosts
+        regexp: "^127\\.0\\.1\\.1"
+        line: "127.0.1.1 p01_Camilly_Souza"  
