@@ -1,0 +1,23 @@
+---
+- name: Configurar banner de login SSH
+  hosts: all
+  become: yes
+  tasks:
+    - name: Configurar banner de login
+      copy:
+        dest: /etc/issue.net
+        content: |
+          Acesso restrito apenas a pessoas com autorização expressa.
+          Seu acesso está sendo monitorado!
+
+    - name: Habilitar banner SSH
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "^#?Banner"
+        line: "Banner /etc/issue.net"
+
+    - name: Reiniciar o serviço SSH
+      service:
+        name: sshd
+        state: restarted
+
