@@ -46,11 +46,11 @@ Realiza uma atualização completa de todos os pacotes do sistema.
 
 2.2. Configuração do Hostname
 
-Altera o hostname da VM para p01_Camilly_Nome02.
+Altera o hostname da VM para p01-Camilly-Souza.
 
 2.3. Criação de Usuários
 
-Cria um usuário com login correspondente ao nome do integrante do grupo.
+Cria  usuários com logins correspondentes aos nomes dos integrantes do grupo.
 
 2.4. Mensagem de Saudação
 
@@ -90,7 +90,7 @@ Remover o shell do usuário nfs-ifpb para aumentar a segurança.
 
 *2.9. Monitoramento de Acesso*
 
-Implementa um script que registra informações de acesso no arquivo /dados/nfs/acessos:
+Implementa um script (monitor_access.sh), localizado em [/usr/local/bin] que registra informações dos acessos no arquivo [/dados/nfs/acessos]:
 
 Data e hora do acesso;
 Nome de login do usuário;
@@ -110,7 +110,7 @@ cd projeto-devops
 
 Execute o provisionamento da VM com Vagrant:
 
-vagrant up
+vagrant up ou vagrant provision
 
 Acesse a VM via SSH para verificar as configurações:
 
@@ -130,7 +130,7 @@ Verifique o hostname:
     Vagrantfile: Arquivo para provisionamento da infraestrutura.
 
     playbooks/: Diretório contendo os playbooks e arquivos de configuração do Ansible.
-
+            keys/: armazena as chaves publicas e privadas
     README.md: Documentação detalhada do projeto.
 
 ## Contato
