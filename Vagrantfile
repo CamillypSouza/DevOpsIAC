@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "p01-camilly"
 
   # Configuração de rede
-  config.vm.network "private_network", ip: "192.168.57.10"
+  config.vm.network "private_network", ip: "192.168.57.55"
 
   # Configuração do provider VirtualBox
   config.vm.provider "virtualbox" do |vb|
@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
   # Configurar Ansible para provisionamento automático
   config.vm.provision "ansible" do |ansible|
     ansible.compatibility_mode = "2.0"
-    ansible.playbook = "/home/camilly/projeto/playbooks/main_playbook.yml"
-    ansible.inventory_path = "inventory.ini"
+    ansible.playbook = "/playbooks/main_playbook.yml"
+    
   end
 end
