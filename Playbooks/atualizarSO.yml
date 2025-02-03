@@ -7,7 +7,7 @@
       apt:
         update_cache: yes
 
-    - name: Atualizar todos os pacotes instalados
-      apt:
-        upgrade: dist
+    #- name: Atualizar todos os pacotes instalados
+      #apt:
+        #upgrade: dist
 
