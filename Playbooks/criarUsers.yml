@@ -5,15 +5,18 @@
   tasks:
     - name: Garantir que o grupo ifpb exista
       ansible.builtin.group:
-         name: ifpb
-         state: present
+        name: ifpb
+        state: present
 
-    - name: Criar usuários
+    - name: Criar usuários com senha em texto puro
       ansible.builtin.user:
-        name: "{{ item }}"
+        name: "{{ item.name }}"
+        password: "{{ item.password }}"
         group: ifpb
+        shell: /bin/bash
+        create_home: yes
         state: present
       loop:
-        - Camilly
-        - Souza
-        - nfs-ifpb
+        - { name: "Camilly", password: "camilly" }
+        - { name: "Souza", password: "souza" }
+        - { name: "nfs-ifpb", password: "ifpb" }
