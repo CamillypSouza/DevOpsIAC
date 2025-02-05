@@ -12,7 +12,7 @@ Camilly Pinto de Souza
 Administração de Sistemas e Abertos - **professor Pedro Batista de Carvalho Filho**
 
 
-## Estrutura do Projeto
+## Estrutura
 
 ### **1. Provisionamento da Infraestrutura com Vagrant**
 
